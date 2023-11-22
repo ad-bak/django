@@ -1,0 +1,10 @@
+{% extends "base.html" %} {% block page_title %}
+<title>Monthly Challenge</title>
+{% endblock %} {% block content %}
+<h1>{{ month_name|default:"No month" }} Challenge</h1>
+
+{%if text %}
+<h2>{{ text }}</h2>
+{% else %}
+<h2>No challenge</h2>
+{% endif %} {% endblock %}
