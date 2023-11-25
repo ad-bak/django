@@ -1,7 +1,11 @@
 {% extends "base.html" %}
 {% block page_title %}
-      <title>Monthly Challenge</title>
+      Monthly Challenge
 {% endblock page_title %}
+{% load static %}
+{% block css_files %}
+      <link rel="stylesheet" href="{% static 'challenges/challenge.css' %}" />
+{% endblock css_files %}
 {% block content %}
       {% include "challenges/includes/header.html" %}
       <h1>{{ month_name|default:"No month" }} Challenge</h1>

@@ -1,19 +1,25 @@
+from re import S
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import (
+    HttpResponseNotFound,
+    HttpResponseRedirect,
+    Http404,
+)
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 monthly_challenges = {
-    "january": "Eat no meat for the entire month!",
+    "january": "Don't eat meat for the entire month!",
     "february": "Walk for at least 20 minutes every day!",
     "march": "Learn Django for at least 20 minutes every day!",
-    "april": "Eat no meat for the entire month!",
-    "may": "Walk for at least 20 minutes every day!",
-    "june": "Learn Django for at least 20 minutes every day!",
-    "july": "Eat no meat for the entire month!",
-    "august": "Walk for at least 20 minutes every day!",
-    "september": "Learn Django for at least 20 minutes every day!",
-    "october": "Eat no meat for the entire month!",
-    "november": "Walk for at least 20 minutes every day!",
+    "april": "Exercise for at least 30 minutes every day!",
+    "may": "Read for at least 30 minutes every day!",
+    "june": "Sleep for at least 8 hours every day!",
+    "july": "Run for at least 20 minutes every day!",
+    "august": "Speak to a friend every day!",
+    "september": "Learn Python for at least 30 minutes every day!",
+    "october": "Learn JavaScript for at least 30 minutes every day!",
+    "november": "Ride a bike for at least 30 minutes every day!",
     "december": None,
 }
 
@@ -50,4 +56,4 @@ def monthly_challenge(request, month):
             },
         )
     except:
-        return HttpResponseNotFound("<h1>This month is not supported!</h1>")
+        raise Http404()

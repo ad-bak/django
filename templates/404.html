@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block page_title %}
+      Something went wrong - {{ super() }}
+{% endblock page_title %}
+{% block content %}
+      <h1>Something went wrong</h1>
+      <p>Sorry about that. Please try again later.</p>
+      <p>Here's the error message:</p>
+      <pre>{{ error }}</pre>
+{% endblock content %}
